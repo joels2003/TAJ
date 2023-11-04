@@ -1,0 +1,58 @@
+/* Add some basic styling to the body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the profile container */
+.profile-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: left; /* Align text to the left within the container */
+}
+
+/* Style the heading */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style the profile information */
+p {
+    color: #555;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Add some spacing to the top of the page */
+.profile-container {
+    margin-top: 20px;
+}
+
+/* Use a custom attractive font (e.g., 'Roboto', sans-serif) */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Add some colors to headings and links for a visually appealing design */
+h1 {
+    color: #2C3E50; /* Dark blue color for headings */
+}
+
+a {
+    color: #E74C3C; /* Red color for links */
+    text-decoration: none;
+}

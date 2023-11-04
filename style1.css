@@ -1,0 +1,36 @@
+/* Style for the admin page container */
+.admin-container {
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+}
+
+/* Style for the button container */
+.button-container {
+  width: 200px; /* Adjust the width as needed */
+  float: left; /* Float the container to the left */
+  margin-right: 20px; /* Add some spacing between buttons */
+}
+
+/* Style for the buttons */
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #3498db; /* Button background color */
+  color: #fff; /* Text color */
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+  background-color: #2980b9; /* Hover background color */
+}
+
+/* Add additional styling as needed */
