@@ -30,6 +30,78 @@ $selectedParts = $_POST['parts_name'];
 $partsQuery = "SELECT parts_name, price FROM inventory_table WHERE parts_id IN (" . implode(",", $selectedParts) . ")";
 $partsResult = $conn->query($partsQuery);
 
+
+
+
+
+
+if (!$conn) {
+    die("Could not connect: " . mysqli_connect_error());
+}
+
+//  $service_id = $_POST['service_id'];
+// $vehicle_id = $_POST['vehicle_id'];
+// $vehicle_id = $_POST['vehicle_id'];
+
+// Fetch the service_id based on the provided vehicle_id
+$sql = "SELECT service_id FROM service_table WHERE vehicle_id = '$vehicle_id'";
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $serviceId = $row['service_id'];
+    } else {
+        echo "<script>
+            // Show the alert box
+            alert('No matching Vehicle ID found in the database. Please check the Vehicle ID.');
+        
+          
+            window.location.href = 'inventory.php';
+        </script>
+        ";
+    }
+} else {
+    echo "<script>alert('Error fetching data: " . mysqli_error($conn) . "');</script>";
+}
+
+
+// Calculate the total price based on the selected parts
+$total_price = 0;
+foreach ($_POST['parts_name'] as $part_id) {
+    $part_id = (int) $part_id;
+    $query = "SELECT price FROM inventory_table WHERE parts_id = $part_id";
+    $result = mysqli_query($conn, $query);
+    if ($result && $row = mysqli_fetch_assoc($result)) {
+        $total_price += $row['price'];
+    }
+}
+
+// Insert inventory item data into inventory_table
+$parts_name = implode(", ", $_POST['parts_name']);
+$sql = "INSERT INTO inventory_table (service_id, vehicle_id, parts_name, price)
+            VALUES ('$service_id', '$vehicle_id', '$parts_name', '$total_price')";
+$result = mysqli_query($conn, $sql);
+
+// Update the service table's bill_amount with the calculated total price
+
+
+$sql = "UPDATE service_table
+    SET bill_amount = $total_price
+    WHERE vehicle_id = $vehicle_id";
+$updateResult = mysqli_query($conn, $sql);
+
+if ($result && $updateResult) {
+    echo "<script>alert('Inventory Item Added Successfully');</script>";
+} else {
+    echo " " . mysqli_error($conn);
+    echo "<script>alert('Vehicle Id Not found');</script>";
+}
+
+
+
+
+
 $partsData = array();
 while ($row = $partsResult->fetch_assoc()) {
     $partsData[] = $row;

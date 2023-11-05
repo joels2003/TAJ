@@ -109,6 +109,10 @@
                 <button><a href="vehicleregister.php">Register Vehicle Details</a></button>
             </div>
             <div class="widget">
+                <h3>Registred Vehicles</h3>
+                <button><a href="list_vehicle.php">Registered Vehicle Details</a></button>
+            </div>
+            <div class="widget">
                 <h3>Service History</h3>
                 <button><a href="service_history.php"> History</a></button>
             </div>

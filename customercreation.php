@@ -64,7 +64,7 @@
         $stmt2->bind_param("ssssss", $user_id, $firstname, $lastname, $contactnumber, $email, $customer_address);
 
         if ($stmt->execute() && $stmt2->execute()) {
-            echo "<script>alert('Data Inserted Successfully');</script>";
+            echo "<script>alert('Customer Registered Successfully');</script>";
         } else {
             echo "Error: " . $stmt->error;
         }

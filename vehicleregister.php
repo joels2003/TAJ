@@ -48,7 +48,7 @@
         ?>
         <a href="admin_dashboard.php">Back to Admin Dashboard</a>
         <h1>Vehicle Registration</h1>
-        <form method="post">
+        <form action="vehicleregister.php" method="post">
             <div class="form-group">
                 Vehicle ID: <input type="text" name="vehicle_id" placeholder="Vehicle ID" required>
             </div>

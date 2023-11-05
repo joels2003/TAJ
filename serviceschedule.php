@@ -40,10 +40,19 @@
             $deliverydate = $_POST['deliverydate'];
             // $bill_amount = $_POST['bill_amount'];
            // $service_id = $_POST['service_id'];
-
+           
+           function generateServiceID() {
+            $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $service_id = '';
+            for ($i = 0; $i < 8; $i++) {
+                $service_id .= $characters[rand(0, strlen($characters) - 1)];
+            }
+            return $service_id;
+        }
+        $service_id = generateServiceID(); 
             // Insert service schedule data into service_table
-            $sql = "INSERT INTO service_table (vehicle_id, pickupdate, deliverydate, bill_amount)
-                    VALUES ('$vehicle_id', '$pickupdate', '$deliverydate', 0)"; // Set bill_amount to 0 for now
+            $sql = "INSERT INTO service_table (service_id, vehicle_id, pickupdate, deliverydate, bill_amount)
+                    VALUES ('$service_id', '$vehicle_id', '$pickupdate', '$deliverydate', 0)"; // Set bill_amount to 0 for now
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
